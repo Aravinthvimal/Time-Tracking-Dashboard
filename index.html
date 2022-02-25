@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./images/favicon.png">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+  </style>
+  
+  <style>
+
+    .container.pre-animation {
+      animation: 2s anim-lineUp ease-out;
+    }
+
+    @keyframes anim-lineUp {
+      
+      0% {
+        opacity: 0;
+        transform: translateY(80%);
+      }
+
+      20% {
+        opacity: 0;
+      }
+  
+      50% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+
+    }
+
+    .elipsis-btn svg:hover .elipsis {
+      fill: white;
+    }
+    
+  </style>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            Blue: 'hsl(246, 80%, 60%)',
+            Work: 'hsl(15, 100%, 70%)',
+            Play: 'hsl(195, 74%, 62%)',
+            Study: 'hsl(348, 100%, 68%)',
+            Exercise: 'hsl(145, 58%, 55%)',
+            Social: 'hsl(264, 64%, 52%)',
+            SelfCare: 'hsl(43, 84%, 65%)',
+            VeryDarkBlue: 'hsl(226, 43%, 10%)',
+            DarkBlue: 'hsl(235, 46%, 20%)',
+            DesaturatedBlue: 'hsl(235, 45%, 61%)',
+            PaleBlue: 'hsl(236, 100%, 87%)',
+            HoverBlue: '#34397b'
+          },
+          width: {
+          '15.8': '15.8rem',
+          '82': '21.3rem',
+          '83': '18.4rem',
+          },
+        }
+      }
+    }
+  </script>
+  <title> Time Tracking Dashboard </title>
+</head>
+<body style="font-family: 'Rubik', sans-serif;" class="bg-VeryDarkBlue">
+  <main class="lg:flex items-center justify-center my-28 gap-8 mx-4 lg:mx-0">
+    <div class="relative top-2 flex flex-col text-PaleBlue bg-DarkBlue rounded-xl"> 
+      <div class="flex flex-row lg:flex-col items-center lg:items-start bg-Blue px-6 lg:pr-20 py-8 lg:pb-20 w-full lg:max-w-fit rounded-xl gap-6 lg:gap-0 ">
+        <img src="./images/image-jeremy.png" alt="hero-img" class="w-12 h-full lg:w-16 rounded-full border-2 border-white ">
+        <div class="lg:hidden flex flex-col">
+          <h3 class="lg:mt-10 text-sm font-light mb-1"> Report for </h3>
+          <p class="text-white text-3xl lg:text-4xl font-light w-full lg:w-1/2"> Jeremy Robson </p>
+        </div>
+        <h3 class="hidden lg:block mt-10 text-sm font-light mb-1"> Report for </h3>
+        <p class="hidden lg:block text-white text-4xl font-light w-1/2"> Jeremy Robson </p>
+      </div>
+      <div class="flex justify-between lg:items-start flex-row lg:flex-col gap-4 p-6 lg:pb-11 text-DesaturatedBlue text-lg">
+        <button id="daily-btn" class="transition duration-300 ease-in-out hover:text-PaleBlue"> Daily </button>
+        <button id="weekly-btn" class="transition duration-300 ease-in-out hover:text-PaleBlue text-PaleBlue"> Weekly </button>
+        <button id="monthly-btn" class="transition duration-300 ease-in-out hover:text-PaleBlue"> Monthly </button>
+      </div>
+    </div>
+    <div>
+        <div class="flex flex-col items-center text-white">
+          <div class="flex flex-col lg:flex-row items-center gap-0 lg:gap-6">
+            <div class="flex flex-col">
+              <div  class="flex flex-row-reverse relative left-px top-10 max-h-24 w-82 lg:w-15.8 bg-Work overflow-hidden rounded-xl">
+                <img src="./images/icon-work.svg" alt="work" class="relative -top-3 h-full">
+              </div>
+              <div class="transition duration-300 ease-in-out hover:bg-HoverBlue cursor-pointer bg-DarkBlue p-6 rounded-2xl z-10">
+                <div class="flex items-center justify-between w-83 lg:w-83 lg:w-52"> 
+                  <h3 class="text-xl"> Work </h3> 
+                  <button class="elipsis-btn py-4"> 
+                    <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                      <path class="elipsis" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" 
+                      fill="#BBC0FF" fill-rule="evenodd"/>
+                    </svg> 
+                  </button> 
+                </div>
+                <div class="container">
+                  <p class="currentTime mt-6 text-6xl font-extralight"> 32hrs </p>
+                  <p class="previousTime opacity-70 text-sm mt-2"> Last Week - 36hrs </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <div  class="flex flex-row-reverse relative left-px top-10 max-h-24 w-82 lg:w-15.8 bg-Play overflow-hidden rounded-xl">
+                <img src="./images/icon-play.svg" alt="work" class="relative -top-3 h-full">
+              </div>
+              <div class="transition duration-300 ease-in-out hover:bg-HoverBlue cursor-pointer bg-DarkBlue p-6 rounded-2xl z-10">
+                <div class="flex items-center justify-between w-83 lg:w-52"> 
+                  <h3 class="text-xl "> Play </h3> 
+                  <button class="elipsis-btn py-4"> 
+                    <svg class width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                      <path class="elipsis" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" 
+                      fill="#BBC0FF" fill-rule="evenodd"/>
+                    </svg> 
+                  </button>
+                </div>
+                <div class="container">
+                  <p class="currentTime mt-6 text-6xl font-extralight"> 10hrs </p>
+                  <p class="previousTime opacity-70 text-sm mt-2"> Last Week - 8hrs </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <div  class="flex flex-row-reverse relative left-px top-10 max-h-24 w-82 lg:w-15.8 bg-Study overflow-hidden rounded-xl">
+                <img src="./images/icon-study.svg" alt="work" class="relative -top-3 h-full">
+              </div>
+              <div class="transition duration-300 ease-in-out hover:bg-HoverBlue cursor-pointer bg-DarkBlue p-6 rounded-2xl z-10 mb-6 lg:mb-0">
+                <div class="flex items-center justify-between w-83 lg:w-52"> 
+                  <h3 class="text-xl "> Study </h3> 
+                  <button class="elipsis-btn py-4"> 
+                    <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                      <path class="elipsis" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" 
+                      fill="#BBC0FF" fill-rule="evenodd"/>
+                    </svg> 
+                  </button>
+                </div>
+                <div class="container">
+                  <p class="currentTime mt-6 text-6xl font-extralight"> 4hrs </p>
+                  <p class="previousTime opacity-70 text-sm mt-2"> Last Week - 7hrs </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative -top-4 flex flex-col lg:flex-row items-center gap-0 lg:gap-6">
+            <div class="relative top-3 flex flex-col">
+              <div  class="flex flex-row-reverse relative left-px top-4 max-h-24 w-82 lg:w-15.8 bg-Exercise overflow-hidden rounded-xl">
+                <img src="./images/icon-exercise.svg" alt="work" class="relative -top-3 h-full">
+              </div>
+              <div class="transition duration-300 ease-in-out hover:bg-HoverBlue cursor-pointer bg-DarkBlue p-6 rounded-2xl z-10">
+                <div class="flex items-center justify-between w-83 lg:w-52"> 
+                  <h3 class="text-xl "> Exercise </h3> 
+                  <button class="elipsis-btn py-4"> 
+                    <svg class width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                      <path class="elipsis" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" 
+                      fill="#BBC0FF" fill-rule="evenodd"/>
+                    </svg> 
+                  </button>
+                </div>
+                <div class="container">
+                  <p class="currentTime mt-6 text-6xl font-extralight"> 4hrs </p>
+                  <p class="previousTime opacity-70 text-sm mt-2"> Last Week - 5hrs </p>
+                </div>
+              </div>
+            </div>
+            <div class="relative -top-2 flex flex-col">
+              <div  class="flex flex-row-reverse relative left-px top-14 max-h-24 w-82 lg:w-15.8 bg-Social overflow-hidden rounded-xl">
+                <img src="./images/icon-social.svg" alt="work" class="relative -top-3 h-full">
+              </div>
+              <div class="transition duration-300 ease-in-out hover:bg-HoverBlue cursor-pointer bg-DarkBlue p-6 rounded-2xl z-10">
+                <div class="flex items-center justify-between w-83 lg:w-52"> 
+                  <h3 class="text-xl "> Social </h3> 
+                  <button class="elipsis-btn py-4"> 
+                    <svg class width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                      <path class="elipsis" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" 
+                      fill="#BBC0FF" fill-rule="evenodd"/>
+                    </svg> 
+                  </button>
+                </div>
+                <div class="container">
+                  <p class="currentTime mt-6 text-6xl font-extralight"> 5hrs </p>
+                  <p class="previousTime opacity-70 text-sm mt-2"> Last Week - 10hrs </p>
+                </div>
+              </div>
+            </div>
+            <div class="relative top-1.5 flex flex-col">
+              <div class="flex flex-row-reverse relative left-px top-7 max-h-24 w-82 lg:w-15.8 bg-SelfCare overflow-hidden rounded-xl">
+                <img src="./images/icon-self-care.svg" alt="work" class="relative -top-3 h-full">
+              </div>
+              <div class="transition duration-300 ease-in-out hover:bg-HoverBlue cursor-pointer bg-DarkBlue p-6 rounded-2xl z-10">
+                <div class="flex items-center justify-between w-83 lg:w-52"> 
+                  <h3 class="text-xl "> Self Care </h3> 
+                  <button class="elipsis-btn py-4"> 
+                    <svg class width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                      <path class="elipsis" d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" 
+                      fill="#BBC0FF" fill-rule="evenodd"/>
+                    </svg> 
+                  </button>
+                </div>
+                <div class="container">
+                  <p class="currentTime mt-6 text-6xl font-extralight"> 2hrs </p>
+                  <p class="previousTime opacity-70 text-sm mt-2"> Last Week - 2hrs </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>
